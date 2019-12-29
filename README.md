@@ -1,6 +1,6 @@
-# bmi_app
+# BMI
 
-A flutter app to calculate your BMI
+A flutter app to calculate your Body Mass Index (BMI)
 
 ## Getting Started
 
