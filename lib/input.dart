@@ -1,6 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'card_content.dart';
+import 'card_widget.dart';
+
+const bottomContainerHeight = 80.0;
+const activeColor = Color(0xff1D1F33);
+const inactiveColor = Color(0xFF111328);
+const bottomColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
   @override
@@ -8,6 +16,31 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  // 1 male = 0 , female = 0
+  void changeCardColor(int gender) {
+    if (gender == 1) {
+      if (maleCardColor == inactiveColor) {
+        maleCardColor = activeColor;
+        femaleCardColor = inactiveColor;
+      } else {
+        maleCardColor = activeColor;
+        femaleCardColor = inactiveColor;
+      }
+      ;
+    } else {
+      if (femaleCardColor == inactiveColor) {
+        maleCardColor = inactiveColor;
+        femaleCardColor = activeColor;
+      } else {
+        maleCardColor = inactiveColor;
+        femaleCardColor = activeColor;
+      }
+    }
+  }
+
+  Color maleCardColor = inactiveColor;
+  Color femaleCardColor = inactiveColor;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,39 +52,57 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  MyCard(tone: Color(0xff1D1F33)),
-                  MyCard(tone: Color(0xff1D1F33)),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        print('Male pressed');
+                        setState(() {
+                          changeCardColor(1);
+                        });
+                      },
+                      child: MyCard(
+                        tone: maleCardColor,
+                        cardChild: cardContent(
+                          cardIcon: FontAwesomeIcons.mars,
+                          cardText: 'MALE',
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        print('Female pressed');
+                        setState(() {
+                          changeCardColor(0);
+                        });
+                      },
+                      child: MyCard(
+                        tone: femaleCardColor,
+                        cardChild: cardContent(
+                            cardIcon: FontAwesomeIcons.venus,
+                            cardText: 'FEMALE'),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-            MyCard(tone: Color(0xff1D1F33)),
+            Expanded(child: MyCard(tone: activeColor)),
             Expanded(
               child: Row(
                 children: <Widget>[
-                  MyCard(tone: Color(0xff1D1F33)),
-                  MyCard(tone: Color(0xff1D1F33)),
+                  Expanded(child: MyCard(tone: activeColor)),
+                  Expanded(child: MyCard(tone: activeColor)),
                 ],
               ),
             ),
+            Container(
+              height: bottomContainerHeight,
+              width: double.infinity,
+              color: bottomColor,
+            )
           ],
         ));
-  }
-}
-
-class MyCard extends StatelessWidget {
-  final Color tone; // property of my card
-  MyCard({@required this.tone}); // constructor with required property
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: tone,
-        ),
-      ),
-    );
   }
 }
