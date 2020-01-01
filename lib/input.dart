@@ -31,52 +31,43 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        print('Male pressed');
-                        setState(() {
-                          selectedGender = Gender.male;
-                        });
-                      },
-                      child: MyCard(
-                        tone: selectedGender == Gender.male
-                            ? activeColor
-                            : inactiveColor,
-                        cardChild: cardContent(
-                          cardIcon: FontAwesomeIcons.mars,
-                          cardText: 'MALE',
-                        ),
-                      ),
+                  MyCard(
+                    onPress: () {
+                      setState(() {
+                        print('male tap');
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    tone: selectedGender == Gender.male
+                        ? activeColor
+                        : inactiveColor,
+                    cardChild: cardContent(
+                      cardIcon: FontAwesomeIcons.mars,
+                      cardText: 'MALE',
                     ),
                   ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        print('Female pressed');
-                        setState(() {
-                          selectedGender = Gender.female;
-                        });
-                      },
-                      child: MyCard(
-                        tone: selectedGender == Gender.female
-                            ? activeColor
-                            : inactiveColor,
-                        cardChild: cardContent(
-                            cardIcon: FontAwesomeIcons.venus,
-                            cardText: 'FEMALE'),
-                      ),
-                    ),
+                  MyCard(
+                    onPress: () {
+                      setState(() {
+                        print('female tap');
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    tone: selectedGender == Gender.female
+                        ? activeColor
+                        : inactiveColor,
+                    cardChild: cardContent(
+                        cardIcon: FontAwesomeIcons.venus, cardText: 'FEMALE'),
                   ),
                 ],
               ),
             ),
-            Expanded(child: MyCard(tone: activeColor)),
+            MyCard(tone: activeColor),
             Expanded(
               child: Row(
                 children: <Widget>[
-                  Expanded(child: MyCard(tone: activeColor)),
-                  Expanded(child: MyCard(tone: activeColor)),
+                  MyCard(tone: activeColor),
+                  MyCard(tone: activeColor),
                 ],
               ),
             ),
