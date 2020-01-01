@@ -1,12 +1,12 @@
 // Constants file
 import 'package:flutter/material.dart';
 
-const KBottomContainerHeight = 80.0;
-const KActiveColor = Color(0xff1D1F33);
-const KInactiveColor = Color(0xFF111328);
-const KButtonColor = Color(0xFFEB1555);
+const kBottomContainerHeight = 80.0;
+const kActiveColor = Color(0xff1D1F33);
+const kInactiveColor = Color(0xFF111328);
+const kButtonColor = Color(0xFFEB1555);
 
-const KLabelTextStyle = TextStyle(
+const kLabelTextStyle = TextStyle(
   fontSize: 18.0,
   color: Color(0xFF8D8E98),
 );

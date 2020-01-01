@@ -34,8 +34,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     tone: selectedGender == Gender.male
-                        ? KActiveColor
-                        : KInactiveColor,
+                        ? kActiveColor
+                        : kInactiveColor,
                     cardChild: cardContent(
                       cardIcon: FontAwesomeIcons.mars,
                       cardText: 'MALE',
@@ -49,8 +49,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     tone: selectedGender == Gender.female
-                        ? KActiveColor
-                        : KInactiveColor,
+                        ? kActiveColor
+                        : kInactiveColor,
                     cardChild: cardContent(
                         cardIcon: FontAwesomeIcons.venus, cardText: 'FEMALE'),
                   ),
@@ -58,12 +58,12 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             MyCard(
-              tone: KActiveColor,
+              tone: kActiveColor,
               cardChild: Column(
                 children: <Widget>[
                   Text(
                     'HEIGHT',
-                    style: KLabelTextStyle,
+                    style: kLabelTextStyle,
                   )
                 ],
               ),
@@ -71,15 +71,15 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  MyCard(tone: KActiveColor),
-                  MyCard(tone: KActiveColor),
+                  MyCard(tone: kActiveColor),
+                  MyCard(tone: kActiveColor),
                 ],
               ),
             ),
             Container(
-              height: KBottomContainerHeight,
+              height: kBottomContainerHeight,
               width: double.infinity,
-              color: KButtonColor,
+              color: kButtonColor,
             )
           ],
         ));
