@@ -1,14 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'card_content.dart';
 import 'card_widget.dart';
-
-const bottomContainerHeight = 80.0;
-const activeColor = Color(0xff1D1F33);
-const inactiveColor = Color(0xFF111328);
-const bottomColor = Color(0xFFEB1555);
+import 'constants.dart';
 
 enum Gender { male, female }
 
@@ -39,8 +34,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     tone: selectedGender == Gender.male
-                        ? activeColor
-                        : inactiveColor,
+                        ? KActiveColor
+                        : KInactiveColor,
                     cardChild: cardContent(
                       cardIcon: FontAwesomeIcons.mars,
                       cardText: 'MALE',
@@ -54,27 +49,37 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     tone: selectedGender == Gender.female
-                        ? activeColor
-                        : inactiveColor,
+                        ? KActiveColor
+                        : KInactiveColor,
                     cardChild: cardContent(
                         cardIcon: FontAwesomeIcons.venus, cardText: 'FEMALE'),
                   ),
                 ],
               ),
             ),
-            MyCard(tone: activeColor),
+            MyCard(
+              tone: KActiveColor,
+              cardChild: Column(
+                children: <Widget>[
+                  Text(
+                    'HEIGHT',
+                    style: KLabelTextStyle,
+                  )
+                ],
+              ),
+            ),
             Expanded(
               child: Row(
                 children: <Widget>[
-                  MyCard(tone: activeColor),
-                  MyCard(tone: activeColor),
+                  MyCard(tone: KActiveColor),
+                  MyCard(tone: KActiveColor),
                 ],
               ),
             ),
             Container(
-              height: bottomContainerHeight,
+              height: KBottomContainerHeight,
               width: double.infinity,
-              color: bottomColor,
+              color: KButtonColor,
             )
           ],
         ));

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 // Reusable card content
 class cardContent extends StatelessWidget {
@@ -19,10 +20,7 @@ class cardContent extends StatelessWidget {
         SizedBox(height: 15.0),
         Text(
           cardText,
-          style: TextStyle(
-            fontSize: 18.0,
-            color: Color(0xFF8D8E98),
-          ),
+          style: KLabelTextStyle,
         )
       ],
     );
