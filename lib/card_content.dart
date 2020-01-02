@@ -5,7 +5,8 @@ import 'constants.dart';
 class CardContent extends StatelessWidget {
   final String cardText; // text property
   final IconData cardIcon; // icon property
-  CardContent({@required this.cardIcon, this.cardText}); // constructor
+  CardContent(
+      {@required this.cardIcon, @required this.cardText}); // constructor
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,11 @@ class CardContent extends StatelessWidget {
           cardIcon,
           size: 70.0,
         ),
+        SizedBox(height: 10.0),
+        Text(
+          cardText,
+          style: kLabelTextStyle,
+        )
       ],
     );
   }

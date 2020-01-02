@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'card_content.dart';
 import 'card_widget.dart';
 import 'constants.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 enum Gender { male, female }
 
@@ -29,6 +29,7 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               flex: 5,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   MyCard(
                     flex: 1,
@@ -75,10 +76,7 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    'HEIGHT',
-                    style: kLabelTextStyle,
-                  ),
+                  Icon(MaterialCommunityIcons.human_male_height_variant),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -128,10 +126,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          'WEIGHT',
-                          style: kLabelTextStyle,
-                        ),
+                        Icon(MaterialCommunityIcons.weight_kilogram),
                         Text(
                           weight.toString(),
                           style: kNumberStyle,
