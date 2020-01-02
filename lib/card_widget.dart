@@ -5,15 +5,18 @@ class MyCard extends StatelessWidget {
   final Color tone; // tone property of my card
   final Widget cardChild; // content property of the card
   final Function onPress; // press property of the card
+  final int flex; // flex property
 
   MyCard(
       {@required this.tone,
+      this.flex,
       this.cardChild,
       this.onPress}); // constructor with properties
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: flex,
       child: GestureDetector(
         onTap: onPress, // the function will be defined in each object instance
         child: Container(
