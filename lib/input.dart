@@ -17,6 +17,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.male;
   int height = 180;
   int weight = 85;
+  int age = 40;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _InputPageState extends State<InputPage> {
         body: Column(
           children: <Widget>[
             Expanded(
-              flex: 5,
+              flex: 3,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
@@ -71,7 +72,7 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             MyCard(
-              flex: 6,
+              flex: 5,
               tone: kActiveColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -140,16 +141,41 @@ class _InputPageState extends State<InputPage> {
                   MyCard(
                     tone: kActiveColor,
                     flex: 1,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(MaterialCommunityIcons.cake_variant),
+                        Text(
+                          age.toString(),
+                          style: kNumberStyle,
+                        ),
+                        Row(
+                          children: <Widget>[
+                            RoundButtonWidget(),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-            Container(
-              height: kBottomContainerHeight,
-              width: double.infinity,
-              color: kButtonColor,
+            ButtonBar(
+              children: <Widget>[
+                Text('CALCULATE'),
+              ],
             )
           ],
         ));
+  }
+}
+
+class RoundButtonWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      shape: CircleBorder(),
+      fillColor: kLabelColor,
+    );
   }
 }
