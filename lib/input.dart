@@ -93,8 +93,11 @@ class _InputPageState extends State<InputPage> {
                         height.toString(),
                         style: kNumberStyle,
                       ),
+                      SizedBox(
+                        width: 4.0,
+                      ),
                       Text(
-                        'CM',
+                        'cm',
                         style: kLabelTextStyle,
                       ),
                     ],
@@ -139,8 +142,29 @@ class _InputPageState extends State<InputPage> {
                           style: kNumberStyle,
                         ),
                         Row(
-                            //
-                            )
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundButtonWidget(
+                              icon: FontAwesomeIcons.minus,
+                              function: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            RoundButtonWidget(
+                              icon: FontAwesomeIcons.plus,
+                              function: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -156,8 +180,27 @@ class _InputPageState extends State<InputPage> {
                           style: kNumberStyle,
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            RoundButtonWidget(),
+                            RoundButtonWidget(
+                              icon: FontAwesomeIcons.minus,
+                              function: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 15.0,
+                            ),
+                            RoundButtonWidget(
+                              icon: FontAwesomeIcons.plus,
+                              function: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
                           ],
                         )
                       ],
@@ -177,11 +220,25 @@ class _InputPageState extends State<InputPage> {
 }
 
 class RoundButtonWidget extends StatelessWidget {
+  RoundButtonWidget({this.icon, this.function});
+
+  final IconData icon;
+  final Function function;
+
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      onPressed: () {
+        function();
+      },
+      child: Icon(icon),
+      elevation: 0.0,
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
       shape: CircleBorder(),
-      fillColor: kLabelColor,
+      fillColor: Color(0xFF4c4f5e),
     );
   }
 }
