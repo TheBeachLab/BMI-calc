@@ -48,6 +48,9 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Icon(
                       FontAwesomeIcons.mars,
                       size: 70.0,
+                      color: selectedGender == Gender.male
+                          ? Colors.white
+                          : kLabelColor,
                     ),
                   ),
                   MyCard(
@@ -66,6 +69,9 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Icon(
                       FontAwesomeIcons.venus,
                       size: 70.0,
+                      color: selectedGender == Gender.female
+                          ? Colors.white
+                          : kLabelColor,
                     ),
                   ),
                 ],
