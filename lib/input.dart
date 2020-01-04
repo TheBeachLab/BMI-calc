@@ -1,3 +1,4 @@
+import 'package:bmi_app/results.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -209,10 +210,21 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            ButtonBar(
-              children: <Widget>[
-                Text('CALCULATE'),
-              ],
+            GestureDetector(
+              onTap: () {
+                print('calculating...');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return ResultsPage();
+                  }),
+                );
+              },
+              child: Container(
+                child: Text('CALCULATE'),
+                height: kBottomContainerHeight,
+                color: kButtonColor,
+              ),
             )
           ],
         ));
