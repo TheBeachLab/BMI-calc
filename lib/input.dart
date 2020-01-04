@@ -221,7 +221,13 @@ class _InputPageState extends State<InputPage> {
                 );
               },
               child: Container(
-                child: Text('CALCULATE'),
+                child: Center(
+                  child: Text(
+                    'CALCULATE',
+                    style: kButtonStyle,
+                  ),
+                ),
+                padding: EdgeInsets.only(bottom: 20.0),
                 height: kBottomContainerHeight,
                 color: kButtonColor,
               ),
