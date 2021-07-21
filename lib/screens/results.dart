@@ -8,6 +8,15 @@ import '../components/bottom_button.dart';
 final double result = 23.0;
 
 class ResultsPage extends StatelessWidget {
+  ResultsPage(
+      {@required this.bmiResult,
+      @required this.interpretationText,
+      @required this.resultText});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretationText;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,15 +46,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    'NORMAL',
+                    resultText.toUpperCase(),
                     style: kResultStyle,
                   ),
                   Text(
-                    '18.4',
+                    bmiResult,
                     style: kBMIStyle,
                   ),
                   Text(
-                    'Your BMI is normal, keep going like this!!',
+                    interpretationText,
                     textAlign: TextAlign.center,
                     style: kBodyTextStyle,
                   ),
