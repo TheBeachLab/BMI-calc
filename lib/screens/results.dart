@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
-import 'card_widget.dart';
+import 'package:flutter/painting.dart';
+import '../constants.dart';
+import '../components/card_widget.dart';
+import '../components/bottom_button.dart';
 
 final double result = 23.0;
 
@@ -18,6 +20,8 @@ class ResultsPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
+              padding: EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
               child: Text(
                 'Your Results',
                 style: kTitleStyle,
@@ -41,9 +45,15 @@ class ResultsPage extends StatelessWidget {
                     style: kBMIStyle,
                   ),
                   Text(
-                    'Your BMI is normal, keep going!',
+                    'Your BMI is normal, keep going like this!!',
+                    textAlign: TextAlign.center,
                     style: kBodyTextStyle,
-                  )
+                  ),
+                  BottomButton(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      buttonTitle: 'RE-CALCULATE'),
                 ],
               ),
             ),

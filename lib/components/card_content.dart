@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 
 // Reusable card content
 class CardContent extends StatelessWidget {
