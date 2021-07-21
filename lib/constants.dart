@@ -22,3 +22,23 @@ const kButtonStyle = TextStyle(
   fontSize: 22.0,
   fontWeight: FontWeight.w700,
 );
+
+const kTitleStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kResultStyle = TextStyle(
+  fontSize: 22.0,
+  color: Colors.green,
+  fontWeight: FontWeight.bold,
+);
+
+const kBMIStyle = TextStyle(
+  fontSize: 120.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBodyTextStyle = TextStyle(
+  fontSize: 22.0,
+);
